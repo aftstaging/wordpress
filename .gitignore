@@ -1,0 +1,49 @@
+# WordPress secrets and local configuration
+wp-config.php
+wp-config-local.php
+.env
+.env.*
+*.pem
+*.key
+*.crt
+*.p12
+
+# WordPress core is installed/updated separately on EC2
+/wp-admin/
+/wp-includes/
+/*.php
+!/index.php
+
+# Runtime content, uploads, caches, backups, and logs
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/upgrade/
+/wp-content/languages/
+/wp-content/backups/
+/wp-content/backup*
+/wp-content/ai1wm-backups/
+/wp-content/debug.log
+*.log
+
+# Third-party code is not included in this custom-code repository
+/wp-content/plugins/*
+!/wp-content/plugins/aft-migration-assistant/
+!/wp-content/plugins/aft-migration-assistant/**
+/wp-content/themes/*
+!/wp-content/themes/aft/
+!/wp-content/themes/aft/**
+/wp-content/mu-plugins/*
+!/wp-content/mu-plugins/aft-spam-student-cleaner.php
+!/wp-content/mu-plugins/aft-tutor-external-lesson-video.php
+!/wp-content/mu-plugins/aft-tutor-private.php
+
+# Archives, build output, editor/OS files
+*.zip
+*.tar
+*.tar.gz
+*.sql
+*.sql.gz
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
