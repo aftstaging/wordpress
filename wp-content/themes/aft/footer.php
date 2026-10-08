@@ -25,10 +25,6 @@ $aft_socials = [
 				<span class="aft-logo">
 					<img src="<?php echo esc_url( AFT_URI . '/assets/img/partners/rounded-logo-white.png' ); ?>"
 						alt="" width="42" height="42" loading="lazy">
-					<span class="aft-logo__txt">
-						<b><?php esc_html_e( 'Accountants', 'aft' ); ?></b>
-						<span><?php esc_html_e( 'for Tomorrow', 'aft' ); ?></span>
-					</span>
 				</span>
 				<p class="aft-footer__about">
 					<?php echo esc_html( aft_get( 'footer_about', __( 'Empowering the accountants of tomorrow.', 'aft' ) ) ); ?>
