@@ -9,6 +9,7 @@ This repository is the controlled update channel for the custom WordPress code u
 - `wp-content/mu-plugins/aft-tutor-external-lesson-video.php`
 - `wp-content/mu-plugins/aft-tutor-private.php`
 - `wp-content/plugins/aft-migration-assistant/` — the browser/local-machine migration assistant.
+- `wp-content/plugins/aft-portal-auth/` — the read-only REST endpoint the exam portal uses to verify WordPress credentials and Tutor enrolment.
 - `deploy/` — manual EC2 update and verification helpers.
 - `.github/workflows/` — PHP validation and repository checks.
 
@@ -33,7 +34,24 @@ cd /var/www/html
 bash deploy/ec2-pull-update.sh
 ```
 
-The script uses `git pull --ff-only`, never deletes untracked files, runs PHP syntax checks when PHP CLI is available, and prints the commit that was deployed. Take a database/files backup before production updates.
+The script uses `git pull --ff-only`, never deletes untracked files, runs PHP syntax checks when PHP CLI is available, activates `aft-portal-auth` when wp-cli is available, and prints the commit that was deployed. Take a database/files backup before production updates.
+
+### After pulling: exam portal handshake
+
+`wp-content/plugins/aft-portal-auth` registers two read-only routes
+(`aft-portal/v1/verify` and `aft-portal/v1/ping`). The shared secret is
+**not** stored in this repository. After the first pull, configure it once on
+the server:
+
+```bash
+wp plugin activate aft-portal-auth --path=/var/www/html
+wp option update aft_portal_secret 'same-value-as-WP_SHARED_SECRET-on-portal' --path=/var/www/html
+```
+
+The exam portal must be configured with the same value in its `WP_SHARED_SECRET`
+environment variable, and `WP_VERIFY_URL` pointing at this site's REST root
+(for example `https://example.com/wp-json`). Without a stored secret the routes
+answer `503 not_configured`, so a missing secret fails closed.
 
 If the repository is kept outside the document root, pass the WordPress root explicitly:
 

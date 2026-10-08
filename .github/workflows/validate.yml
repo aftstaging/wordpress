@@ -1,0 +1,70 @@
+name: Validate AFT custom WordPress code
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          tools: composer:v2
+
+      - name: Lint tracked PHP files
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r file; do
+            php -l "$file"
+          done < <(git ls-files '*.php')
+
+      - name: Confirm approved custom paths
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f wp-content/themes/aft/style.css
+          test -f wp-content/themes/aft/functions.php
+          test -f wp-content/mu-plugins/aft-tutor-private.php
+          test -f wp-content/mu-plugins/aft-tutor-external-lesson-video.php
+          test -f wp-content/plugins/aft-migration-assistant/aft-migration-assistant.php
+          test -f wp-content/plugins/aft-portal-auth/aft-portal-auth.php
+
+      - name: Reject obvious credentials and private keys
+        shell: bash
+        run: |
+          set -euo pipefail
+          matches="$(git grep -nE -- '-----BEGIN (RSA|OPENSSH|EC|DSA) PRIVATE KEY-----|AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9_]{20,}' -- . ':!README.md' || true)"
+          if [[ -n "$matches" ]]; then
+            echo "$matches"
+            echo "A credential-like value was found in tracked files." >&2
+            exit 1
+          fi
+
+      - name: Build review artifact
+        run: |
+          tar -czf aft-wordpress-custom-code.tar.gz \
+            wp-content/themes/aft \
+            wp-content/mu-plugins \
+            wp-content/plugins/aft-migration-assistant \
+            wp-content/plugins/aft-portal-auth \
+            deploy scripts README.md .gitignore
+
+      - name: Upload review artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: aft-wordpress-custom-code-${{ github.sha }}
+          path: aft-wordpress-custom-code.tar.gz
+          if-no-files-found: error

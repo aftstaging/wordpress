@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 600">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #3a5dae;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 5px;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        fill: none;
+      }
+
+      .cls-4 {
+        font-size: 74.46px;
+      }
+
+      .cls-4, .cls-5, .cls-6, .cls-7, .cls-8 {
+        font-family: Roboto-Black, Roboto;
+        font-weight: 800;
+      }
+
+      .cls-5 {
+        font-size: 77px;
+      }
+
+      .cls-6 {
+        fill: #6d6e71;
+        font-size: 40px;
+        letter-spacing: .06em;
+      }
+
+      .cls-2 {
+        stroke: url(#linear-gradient-2);
+        stroke-width: 14px;
+      }
+
+      .cls-2, .cls-3 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-9 {
+        fill: #fff;
+      }
+
+      .cls-7 {
+        font-size: 30px;
+        letter-spacing: .02em;
+      }
+
+      .cls-3 {
+        stroke: url(#linear-gradient);
+        stroke-width: 8px;
+      }
+
+      .cls-10 {
+        letter-spacing: -.06em;
+      }
+
+      .cls-11 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-12 {
+        letter-spacing: -.01em;
+      }
+
+      .cls-8 {
+        fill: #72246c;
+        font-size: 42px;
+      }
+
+      .cls-13 {
+        letter-spacing: 0em;
+      }
+
+      .cls-14 {
+        letter-spacing: .02em;
+      }
+
+      .cls-15 {
+        letter-spacing: .02em;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="94.94" y1="505.06" x2="505.06" y2="94.94" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#672d89"/>
+      <stop offset=".5" stop-color="#b64164"/>
+      <stop offset="1" stop-color="#672d89"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="107.31" y1="492.69" x2="492.69" y2="107.31" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4d230a"/>
+      <stop offset=".5" stop-color="#ffe998"/>
+      <stop offset="1" stop-color="#4d230a"/>
+    </linearGradient>
+  </defs>
+  <circle class="cls-9" cx="300" cy="300" r="300"/>
+  <circle class="cls-3" cx="300" cy="300" r="286"/>
+  <circle class="cls-2" cx="300" cy="300" r="265.5"/>
+  <text class="cls-4" transform="translate(199.58 157.78)"><tspan class="cls-14" x="0" y="0">CIM</tspan><tspan class="cls-10" x="141.07" y="0">A</tspan></text>
+  <text class="cls-7" transform="translate(386.9 117.79) scale(.58)"><tspan x="0" y="0">®</tspan></text>
+  <text class="cls-5" transform="translate(151.36 269.53)"><tspan class="cls-15" x="0" y="0">G</tspan><tspan class="cls-12" x="54.03" y="0">L</tspan><tspan class="cls-15" x="94.89" y="0">OBAL</tspan><tspan class="cls-15"><tspan x="-42.8" y="77">LEARNING</tspan></tspan></text>
+  <text class="cls-8" transform="translate(218.9 398.12)"><tspan x="0" y="0">P</tspan><tspan class="cls-11" x="27.34" y="0">r</tspan><tspan class="cls-13" x="42.51" y="0">o</tspan><tspan x="65.79" y="0">vider</tspan></text>
+  <text class="cls-6" transform="translate(249.7 512.2)"><tspan x="0" y="0">2026</tspan></text>
+  <path class="cls-1" d="M263,446.79h74.62"/>
+</svg>

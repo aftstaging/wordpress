@@ -1,0 +1,15 @@
+/*
+Theme Name: Accountants For Tomorrow
+Theme URI: https://accountantsfortomorrow.co.za/
+Author: AFT
+Description: Premium custom WordPress theme for Accountants For Tomorrow. Built for WooCommerce and Tutor LMS, with a design language shared with the AFT Exam Portal. No page builder required.
+Version: 1.0.0
+Requires at least: 6.0
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+Text Domain: aft
+Tags: education, elearning, woocommerce, accessibility-ready, custom-colors
+*/
+
+/* Real styles live in assets/css/main.css (enqueued in functions.php).
+   This file exists because WordPress requires it for theme metadata. */

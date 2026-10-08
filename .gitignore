@@ -29,6 +29,8 @@ wp-config-local.php
 /wp-content/plugins/*
 !/wp-content/plugins/aft-migration-assistant/
 !/wp-content/plugins/aft-migration-assistant/**
+!/wp-content/plugins/aft-portal-auth/
+!/wp-content/plugins/aft-portal-auth/**
 /wp-content/themes/*
 !/wp-content/themes/aft/
 !/wp-content/themes/aft/**
